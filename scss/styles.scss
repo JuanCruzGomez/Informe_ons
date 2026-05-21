@@ -172,46 +172,60 @@ html {
 }
 
 // ==========================================
-// 6. RESPONSIVE (Optimización para Celulares)
+// 6. RESPONSIVE Y LÓGICA DE MENÚ
 // ==========================================
 
+// --- Estilos por defecto (Escritorio) ---
+.menu-toggle {
+    display: none; // Oculto en escritorio
+}
+
+.nav-menu {
+    display: block; // Visible en escritorio
+}
+
+// --- MODO MÓVIL (Pantallas hasta 768px) ---
 @media (max-width: 768px) {
-  body {
-    flex-direction: column; // Pasamos todo a vertical
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative; // Sacamos el fixed para que no tape contenido
-    padding: 1.5rem;
-    border-right: none;
-    border-bottom: 1px solid $borde-suave;
-
-    .brand {
-      margin-bottom: 1rem; // Menos espacio arriba
+    body { 
+        flex-direction: column; 
     }
 
-    ul {
-      display: flex;
-      flex-direction: column; // Forzamos a que sean una lista vertical
-      gap: 0.2rem; // Espacio entre ítems
-
-      li {
-        width: 100%; // Cada link ocupa todo el ancho
+    .sidebar {
+        width: 100%;
+        height: auto; // Para que no ocupe toda la pantalla en celu
+        position: relative; // Quitamos el fixed para que fluya con el contenido
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid $borde-suave;
         
-        a {
-          padding: 0.8rem;
-          font-size: 1rem; // Un poco más grande para el dedo
-          display: block;
-          text-align: left;
+        .menu-toggle {
+            display: block; // Aparece solo en celular
+            width: 100%;
+            padding: 0.8rem;
+            background: $azul-unlp;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
         }
-      }
-    }
-  }
 
-  .content {
-    margin-left: 0; // Quitamos el margen lateral
-    padding: 1.5rem;
-  }
+        .nav-menu {
+            display: none; // Oculto por defecto en celular
+            width: 100%;
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 4px;
+            
+            &.active {
+                display: block; // Se muestra al hacer clic
+            }
+        }
+    }
+
+    .content {
+        margin-left: 0; // Eliminamos el margen lateral
+        padding: 1.5rem;
+    }
 }
