@@ -1,0 +1,217 @@
+// ==========================================
+// 1. VARIABLES (Paleta Minimalista y UNLP)
+// ==========================================
+
+// Fondos y Textos
+$bg-main: #FFFFFF;
+$bg-caja: #F8F9FA;
+$text-principal: #333333;
+$text-secundario: #6B7280;
+$borde-suave: #EAEAEA;
+
+// Identidad Club Finanzas UNLP
+$azul-unlp: #116A9E; 
+$azul-claro: #29A4E2;
+$naranja-acento: #F59B14; 
+
+// ==========================================
+// 2. ESTRUCTURA BASE Y TIPOGRAFÍA
+// ==========================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // Tipografía de sistema para mantener el minimalismo sin cargar fuentes externas
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: $bg-main;
+  color: $text-principal;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth; // Efecto suave al hacer clic en el menú lateral
+}
+
+// ==========================================
+// 3. SIDEBAR (Menú Lateral Fijo)
+// ==========================================
+
+.sidebar {
+  width: 280px;
+  background-color: $bg-main;
+  border-right: 1px solid $borde-suave;
+  padding: 2rem 1.5rem;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+
+  .brand {
+    color: $azul-unlp;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $borde-suave;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        text-decoration: none;
+        color: $text-secundario;
+        display: block;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background-color: rgba($azul-unlp, 0.05);
+          color: $azul-unlp;
+        }
+
+        &.active {
+          background-color: rgba($naranja-acento, 0.1);
+          color: $naranja-acento;
+          font-weight: 600;
+          border-left: 4px solid $naranja-acento;
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// 4. CONTENIDO PRINCIPAL
+// ==========================================
+
+.content {
+  margin-left: 280px; // Empuja el contenido para que el sidebar no lo tape
+  padding: 4rem 5rem;
+  width: 100%;
+  max-width: 1100px;
+
+  h1 {
+    color: $azul-unlp;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
+  h2 {
+    color: $azul-unlp;
+    font-size: 1.8rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $borde-suave;
+  }
+
+  h3 {
+    color: $text-principal;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: #4a4a4a;
+  }
+
+  ul, ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    
+    li {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      color: #4a4a4a;
+    }
+  }
+
+  em {
+    color: $text-secundario;
+  }
+
+  // ==========================================
+  // 5. COMPONENTES (Cajas y Alertas)
+  // ==========================================
+
+  .regla-caja {
+    background-color: $bg-caja;
+    border-left: 4px solid $naranja-acento;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+
+    strong {
+      color: $azul-unlp;
+      display: inline-block;
+      margin-bottom: 0.2rem;
+    }
+    
+    em {
+      color: $text-principal;
+    }
+  }
+}
+
+// ==========================================
+// 6. RESPONSIVE (Optimización para Celulares)
+// ==========================================
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column; // Pasamos todo a vertical
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative; // Sacamos el fixed para que no tape contenido
+    padding: 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid $borde-suave;
+
+    .brand {
+      margin-bottom: 1rem; // Menos espacio arriba
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column; // Forzamos a que sean una lista vertical
+      gap: 0.2rem; // Espacio entre ítems
+
+      li {
+        width: 100%; // Cada link ocupa todo el ancho
+        
+        a {
+          padding: 0.8rem;
+          font-size: 1rem; // Un poco más grande para el dedo
+          display: block;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .content {
+    margin-left: 0; // Quitamos el margen lateral
+    padding: 1.5rem;
+  }
+}
