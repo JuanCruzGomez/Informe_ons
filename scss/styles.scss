@@ -235,8 +235,13 @@ html {
   }
 
   .footer {
-    margin-left: 0; // <-- Cambiá esto
-    width: 100%;    // <-- Cambiá esto
+    margin-left: 0 !important; 
+    width: 100vw !important;  // Ocupa el 100% del ancho de la ventana
+    position: relative;
+    left: 0;
+    text-align: center;
+    padding: 2rem 1rem !important;
+    box-sizing: border-box;
   }
 }
 // ==========================================

@@ -170,8 +170,13 @@ html {
     padding: 1.5rem 1.5rem;
   }
   .footer {
-    margin-left: 0;
-    width: 100%;
+    margin-left: 0 !important;
+    width: 100vw !important;
+    position: relative;
+    left: 0;
+    text-align: center;
+    padding: 2rem 1rem !important;
+    box-sizing: border-box;
   }
 }
 .footer {
