@@ -60,6 +60,15 @@ html {
   font-weight: 600;
   border-left: 4px solid #F59B14;
 }
+.sidebar ul li .nav-db-link {
+  background-color: rgba(17, 106, 158, 0.08);
+  border: 1px solid rgba(17, 106, 158, 0.2);
+  margin-top: 0.5rem;
+}
+.sidebar ul li .nav-db-link:hover {
+  background-color: rgba(17, 106, 158, 0.15) !important;
+  color: #116A9E !important;
+}
 
 .content {
   margin-left: 280px;

@@ -89,6 +89,19 @@ html {
           border-left: 4px solid $naranja-acento;
         }
       }
+
+      // --- AQUÍ VA EL NUEVO ESTILO ---
+      .nav-db-link {
+        background-color: rgba($azul-unlp, 0.08);
+        border: 1px solid rgba($azul-unlp, 0.2);
+        margin-top: 0.5rem;
+        
+        &:hover {
+          background-color: rgba($azul-unlp, 0.15) !important;
+          color: $azul-unlp !important;
+        }
+      }
+      // -------------------------------
     }
   }
 }
